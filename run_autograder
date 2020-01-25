@@ -10,5 +10,7 @@ rm -rf /autograder/repo/submission/
 mkdir -p /autograder/repo/submission
 cp /autograder/submission/* /autograder/repo/submission/
 
+# Get project specific dependencies.
+bash /autograder/repo/setup.sh
 # Execute custom submission script.
 bash /autograder/repo/submission.sh
