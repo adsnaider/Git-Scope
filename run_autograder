@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd /autograder/repo
+
+# Get the latest code. And redo the setup just in case
+git pull origin master
+
+# Delete the submission directory. Replace it with new submission.
+rm -rf /autograder/repo/submission/
+mkdir -p /autograder/repo/submission
+cp /autograder/submission/* /autograder/repo/submission/
+
+# Execute custom submission script.
+bash /autograder/repo/submission.sh
