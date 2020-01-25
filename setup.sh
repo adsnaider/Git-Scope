@@ -3,7 +3,7 @@
 cd /autograder/source
 
 echo "Installing dependencies"
-sudo apt-get update
+apt update
 
 echo "Setting up SSH"
 mkdir -p /root/.ssh
