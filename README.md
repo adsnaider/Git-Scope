@@ -35,15 +35,15 @@ To use this piece of software, a few things must happen.
 
 1. Create a Github repo with the autograder code.
 
-  1.1 The repo should *optionally* contain a `setup.sh` file in the top level
+  1. The repo should *optionally* contain a `setup.sh` file in the top level
   directory. The `setup.sh` is used to install any extra dependencies needed for
   the particular autograder. It can also be used to setup any extra configurations
   needed. This will be run once during the setup of the autograder.
 
-  1.2 The repo *must* contain a `run_autograder` file in the top level directory.
+  2. The repo *must* contain a `run_autograder` file in the top level directory.
   This file will be run every time there is a new submission. This file should
   output the `results.json` into `/autograder/results/results.json` as specified
-  by the (Gradescope Documentation)[https://gradescope-autograders.readthedocs.io/en/latest/specs/].
+  by the [Gradescope Documentation](https://gradescope-autograders.readthedocs.io/en/latest/specs/).
   The submission files will get populated into the directory `submission/` which
   will live at the top level of the repository.
 
