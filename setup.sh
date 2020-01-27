@@ -2,9 +2,6 @@
 
 cd /autograder/source
 
-echo "Installing dependencies"
-apt update
-
 echo "Setting up SSH"
 mkdir -p /root/.ssh
 mv deploy_key /root/.ssh/deploy_key
@@ -26,4 +23,7 @@ ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 git clone $(cat repo) /autograder/repo
 
-bash /autograder/repo/setup.sh
+if [ -f /autograder/repo/setup.sh ]; then
+  chmod +x /autograder/repo/setup.sh
+  bash /autograder/repo/setup.sh
+fi
