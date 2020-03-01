@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cd /autograder/source
 
@@ -7,6 +7,8 @@ mkdir -p /root/.ssh
 mv deploy_key /root/.ssh/deploy_key
 mv deploy_key.pub /root/.ssh/deploy_key.pub
 mv ssh_config /root/.ssh/config
+chmod 400 /root/.ssh/deploy_key
+chmod 644 /root/.ssh/deploy_key.pub
 
 echo "======================Repository address========================="
 cat repo
@@ -25,5 +27,5 @@ git clone $(cat repo) /autograder/repo
 
 if [ -f /autograder/repo/setup.sh ]; then
   chmod +x /autograder/repo/setup.sh
-  bash /autograder/repo/setup.sh
+  sh /autograder/repo/setup.sh
 fi

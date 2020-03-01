@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cd /autograder/repo
 
@@ -12,4 +12,4 @@ cp /autograder/submission/* /autograder/repo/submission/
 
 # Execute custom submission script.
 chmod +x /autograder/repo/run_autograder
-bash /autograder/repo/run_autograder
+sh /autograder/repo/run_autograder
