@@ -26,6 +26,7 @@ ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 git clone $(cat repo) /autograder/repo
 
 if [ -f /autograder/repo/setup.sh ]; then
-  chmod +x /autograder/repo/setup.sh
-  sh /autograder/repo/setup.sh
+  cd /autograder/repo
+  chmod +x setup.sh
+  sh setup.sh
 fi
