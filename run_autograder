@@ -6,10 +6,16 @@ cd /autograder/repo
 git pull origin master
 
 # Delete the submission directory. Replace it with new submission.
-rm -rf /autograder/repo/submission/
+rm -rf /autograder/repo/submission/*
+rm -f /autograder/repo/results/results.json
 mkdir -p /autograder/repo/submission
 cp /autograder/submission/* /autograder/repo/submission/
 
 # Execute custom submission script.
 chmod +x /autograder/repo/run_autograder
 sh /autograder/repo/run_autograder
+
+# copy results into gradescope
+if [ -f /autograder/repo/results/results.json ]; then
+  cp /autograder/repo/results/results.json /autograder/results/
+fi
