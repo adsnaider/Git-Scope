@@ -6,12 +6,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-wget https://github.com/adsnaider/gradescope-integration/archive/master.zip > /dev/null 2>&1
-unzip master.zip -d autograder > /dev/null
-
-rm master.zip
-
-cd autograder/gradescope-integration-master/
+cd autograder/
 
 rm -f deploy_key deploy_key.pub
 ssh-keygen -f deploy_key -q -N ""
@@ -24,6 +19,5 @@ echo "Please copy the above key to the deploy keys section in your github repo."
 echo "$1" > repo
 echo "Setting repo address as \"$1\""
 
-zip ../../autograder.zip ./* > /dev/null
-cd ../../
-rm -rf autograder/
+zip ../autograder.zip ./* > /dev/null
+cd ../
