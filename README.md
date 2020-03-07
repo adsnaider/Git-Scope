@@ -1,4 +1,4 @@
-# Gradescope Integration
+# Git-Scope
 
 ## Goals
 
