@@ -12,6 +12,7 @@ mkdir -p /autograder/repo/submission
 cp /autograder/submission/* /autograder/repo/submission/
 
 # Execute custom submission script.
+mkdir -p /autograder/repo/results
 chmod +x /autograder/repo/run_autograder
 sh /autograder/repo/run_autograder
 
