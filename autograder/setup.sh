@@ -20,10 +20,13 @@ echo "=======================End Public Key============================"
 
 echo "Assert that the above key (deploy key) matches the one in the repository"
 
+# Install extra (optional?) dependencies.
+sh dependencies.sh
 # To prevent prompt when cloning repo from github.com
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 git clone $(cat repo) /autograder/repo
+
 
 if [ -f /autograder/repo/setup.sh ]; then
   cd /autograder/repo
