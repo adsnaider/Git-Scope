@@ -18,7 +18,7 @@ make
 cp *.a /usr/lib/
 
 # Stargrade
-git clone git@github.com:adsnaider/StarGrade.git
+git clone https://github.com/adsnaider/StarGrade.git
 cd StarGrade
 bazel build -c opt :stargrade-deb
 apt-get install ./bazel-bin/stargrade-deb.deb
