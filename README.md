@@ -16,12 +16,12 @@
 
   * Not a testing framework.
   * Not a a way to generate Gradescope's `results.json`. There's other libraries
-    for that particular reason.
+    for that particular reason: See https://github.com/adsnaider/StarGrade
 
 ## Motivation
 
 Creating autograded assignments in Gradescope requires a lot of boiler plate
-code already. Even more, maintaing them is even harder as any change to the
+code already. Maintaing them is even harder as any change to the
 autograder code means having to rebuild the Gradescope docker instance with the
 new autograder code. A better way to handle this, is to have a non-changing
 setup whose job is to clone and pull the assignment-specific autograding code
@@ -39,22 +39,22 @@ To use this piece of software, a few things must happen.
   directory. The `setup.sh` is used to install any extra dependencies needed for
   the particular autograder. It can also be used to setup any extra configurations
   needed. This will be run once during the setup of the autograder.
+  Note that the setup will only get run once during the docker configuration phase 
+  in Gradescope. This limitation is due to Gradescope's design choices.
 
   2. The repo *must* contain a `run_autograder` file in the top level directory.
-  This file will be run every time there is a new submission. This file should
-  output the `results.json` into `/autograder/results/results.json` as specified
-  by the [Gradescope Documentation](https://gradescope-autograders.readthedocs.io/en/latest/specs/).
-  The submission files will get populated into the directory `submission/` which
-  will live at the top level of the repository.
+  This file will be run every time there is a new submission. After this file is run, 
+  a `results.json` should be generated into `/autograder/[repo]/results/results.json`.
+  The submission files will get populated into the directory `/autograder/[repo]/submission/`.
+  Note that both of these files live in the same directory with the repo. This helps abstract away Gradescope's
+  system from your autograder repo. It means that the code can be tested locally and still generate results even
+  when the code isn't being run from within Gradescope.
 
-2. Once that's created, you will need to download this repo. You will have to
-   generate a public-private key pairs that should get stored in the two
-   `deploy_key` and `deploy_key.pub` files. You should add the public key as a
-   read-only deploy key in your github repo.
+2. Once that's created, you will need to download/clone Git-Scope (this repo). You can run `./configure_autograder.sh [autograder repo SSH URL]` to generate the autograder zip file that will be uploaded to Gradescope.
 
-3. Lastly, copy the ssh address of you repo and put it in the `repo` file.
+3. The script we run previously will spit out an ssh key. You must go to your autograder repo and add that key into the deploy keys section so that Gradescope has access to pull the repo into the server. See more information on adding deploy keys in Github here: https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys
 
-Once that's done, you can zip all the files and submit them into
-Gradescope's assignment's autograder configuration. If successful, the autograder
+Once that's done, you may submit the zip file into 
+Gradescope's assignment. If successful, the autograder
 will be pulled from your Github repository every time a student submits their
 code.
