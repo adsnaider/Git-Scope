@@ -4,7 +4,7 @@
 
 - [Goals](#goals)
 - [Future goals](#future-goals)
-- [Non Goals](#non-goals)
+- [Non-Goals](#non-goals)
 - [Motivation](#motivation)
 - [Usage](#usage)
 
@@ -21,11 +21,12 @@
 
 - Provide some options to automatically pull a set of dependencies.
 
-## Non Goals
+## Non-Goals
 
 - Not a testing framework.
 - Not a a way to generate Gradescope's `results.json`. There's other libraries
-  for that particular reason: See https://github.com/adsnaider/StarGrade
+  ([StarGrade](https://github.com/adsnaider/StarGrade)) for that particular
+  reason.
 
 ## Motivation
 
@@ -69,8 +70,8 @@ To use this piece of software, a few things must happen.
 1. The script we run previously will spit out an ssh key. You must go to your
    autograder repo and add that key into the deploy keys section so that
    Gradescope has access to pull the repo into the server. See more information
-   on adding deploy keys in Github here:
-   https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys
+   on
+   [adding deploy keys in Github here](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 
 Once that's done, you may submit the zip file into Gradescope's assignment. If
 successful, the autograder will be pulled from your Github repository every time
