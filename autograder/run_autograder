@@ -9,7 +9,7 @@ git pull origin master
 rm -rf /autograder/repo/submission/*
 rm -f /autograder/repo/results/results.json
 mkdir -p /autograder/repo/submission
-cp /autograder/submission/* /autograder/repo/submission/
+cp -r /autograder/submission/* /autograder/repo/submission/
 
 # Execute custom submission script.
 mkdir -p /autograder/repo/results
