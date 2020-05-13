@@ -21,3 +21,7 @@ echo "Setting repo address as \"$1\""
 
 zip ../autograder.zip ./* > /dev/null
 cd ../
+
+read -p "Press [Enter] when the key has been added..."
+
+./test_key.sh
