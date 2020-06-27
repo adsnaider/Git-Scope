@@ -20,7 +20,7 @@ cp *.a /usr/lib/
 # Stargrade
 git clone https://github.com/adsnaider/StarGrade.git
 cd StarGrade
-bazel build -c opt :stargrade-deb
+bazel build --cxxopt='-std=c++17' -c opt :stargrade-deb
 apt-get install ./bazel-bin/stargrade-deb.deb
 cd ../
 rm -rf StarGrade
